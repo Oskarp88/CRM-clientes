@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config({ path: 'variable.env'});
 
 const crearToken = (usuario, secreta, expiresIn)=>{
     // console.log("token")
