@@ -9,7 +9,7 @@ const newUser = async (_, { input }) => {
    //revisar si el usuario ya existe
    const user = await Usuario.findOne({email});
    console.log(user)
-   if(user) throw new Error("El usuario ya esta registradp")
+   if(user) throw new Error("El usuario ya esta registrado")
    //hashear su password
    const salt = await bcryptjs.genSalt(10);
    input.password = await bcryptjs.hash(password, salt)
