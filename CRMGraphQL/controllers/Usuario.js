@@ -23,9 +23,8 @@ const newUser = async (_, { input }) => {
    }
 }
 
-const allUsers = async (_, { token }) => {
-    const userId = await jwt.verify(token, process.env.SECRETA);
-    return userId;
+const allUsers = async (_, {}, ctx) => {
+    return ctx.usuario;
  }
 
 const authenticateUser = async(_, { input }) => {

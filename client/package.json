@@ -11,17 +11,18 @@
   "dependencies": {
     "@apollo/client": "^3.7.9",
     "@next/font": "13.1.6",
+    "apollo-link-context": "^1.0.20",
     "buffer": "^6.0.3",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "formik": "^2.2.9",
-    "graceful-fs": "^4.2.10",
     "graphql": "^16.6.0",
     "next": "13.1.6",
     "node-fetch": "^2.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "stream-browserify": "^3.0.0",
+    "sweetalert2": "^11.7.2",
     "url": "^0.11.0",
     "yup": "^1.0.0"
   }

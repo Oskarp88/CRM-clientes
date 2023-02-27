@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation, gql } from '@apollo/client';
 import mostrarMensaje from '../config/mensaje';
+import { useRouter } from 'next/router';
 
 const AUTENTICAR_USUARIO = gql`
    mutation  autenticarUsuario($input: AutenticarInput){
@@ -13,10 +14,22 @@ const AUTENTICAR_USUARIO = gql`
 }
 `;
 
+const OBTENER_USUARIO = gql`
+    query obtenerUsuario{
+        obtenerUsuario {
+            id
+            nombre
+            apellido
+        }
+    }
+`;
+
 const Login = () => {
 
    const [ autenticarUsuario ] = useMutation(AUTENTICAR_USUARIO);
    const [mensaje, guardarMensaje] = useState(null);
+
+   const router = useRouter();
 
    const formik = useFormik({
       initialValues: {
@@ -39,10 +52,14 @@ const Login = () => {
                }
             }
            });
+          
            guardarMensaje(`Autenticacion exitosa`);
+           const { token } = data.autenticarUsuario;
+           localStorage.setItem('token', token);
            setTimeout(()=>{
-              guardarMensaje(null)
-           },3000);
+              guardarMensaje(null);
+              router.push('/');
+           },1500);
          } catch (error) {
             guardarMensaje(error.message);
             setTimeout(()=>{
