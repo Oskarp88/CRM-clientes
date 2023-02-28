@@ -76,7 +76,7 @@ const Producto = ({product}) => {
     return ( 
         <tr >
             <td className='border px-4 py-2'>{nombre}</td>
-            <td className='border px-4 py-2'>{precio} $</td>
+            <td className='border px-4 py-2'>{new Intl.NumberFormat().format(precio)} $</td>
             <td className='border px-4 py-2'>{existencia}</td>
             <td className='border px-4 py-2'>
                 <button
