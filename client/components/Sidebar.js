@@ -32,12 +32,12 @@ const Sidebar = () => {
             </div>
             <nav className='mt-5 list-none'>
                 <li className={` ${router.pathname === '/mejoresvendedores' ? 'bg-blue-800 p-3':'p-2'} text-white mb-2 block`}>
-                    <Link href="/">                       
+                    <Link href="/mejoresvendedores">                       
                           Mejores Vendedores                      
                     </Link>                  
                 </li>
                 <li className={` ${router.pathname === '/mejoresclientes' ? 'bg-blue-800 p-3':'p-2'} text-white mb-2 block`}>
-                    <Link href="/">                       
+                    <Link href="/mejoresclientes">                       
                          Mejores Clientes                      
                     </Link>                  
                 </li>

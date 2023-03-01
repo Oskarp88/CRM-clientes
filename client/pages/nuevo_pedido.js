@@ -55,6 +55,7 @@ const NuevoPedido = () => {
     {
     update(cache, { data: { nuevoPedido } }){
         const { obtenerPedidosVendedor} = cache.readQuery({ query: OBTENER_PEDIDOS })
+        
         cache.writeQuery({
             query: OBTENER_PEDIDOS,
             data: {
@@ -89,6 +90,7 @@ const NuevoPedido = () => {
             );
             router.push("/pedidos");
         } catch (error) {
+             console.log(error)
             setMensaje(error.message);
             setTimeout(()=>{
                 setMensaje(null)

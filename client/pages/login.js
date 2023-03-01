@@ -54,8 +54,14 @@ const Login = () => {
            });
           
            guardarMensaje(`Autenticacion exitosa`);
-           const { token } = data.autenticarUsuario;
-           localStorage.setItem('token', token);
+
+           setTimeout(() => {
+            const { token } = data.autenticarUsuario;
+            localStorage.setItem('token', token);
+           }, 2000);
+
+           console.log(data.email)
+
            setTimeout(()=>{
               guardarMensaje(null);
               router.push('/');
