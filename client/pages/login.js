@@ -31,6 +31,8 @@ const Login = () => {
 
    const router = useRouter();
 
+   
+
    const formik = useFormik({
       initialValues: {
          email: '',
@@ -41,6 +43,7 @@ const Login = () => {
          password: Yup.string().required("Password es requerido")
       }),
       onSubmit:  async valores => {
+         console.log(valores)
          const { email , password } = valores;
 
          try {
@@ -50,7 +53,8 @@ const Login = () => {
                   email,
                   password
                }
-            }
+            },
+            
            });
           
            guardarMensaje(`Autenticacion exitosa`);
@@ -60,13 +64,12 @@ const Login = () => {
             localStorage.setItem('token', token);
            }, 2000);
 
-           console.log(data.email)
-
            setTimeout(()=>{
               guardarMensaje(null);
               router.push('/');
            },1500);
          } catch (error) {
+            console.log(error)
             guardarMensaje(error.message);
             setTimeout(()=>{
                guardarMensaje(null)
@@ -74,6 +77,8 @@ const Login = () => {
          }
       }
    });
+   
+   
 
     return ( 
        <>
