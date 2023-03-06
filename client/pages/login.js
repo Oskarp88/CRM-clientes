@@ -14,15 +14,7 @@ const AUTENTICAR_USUARIO = gql`
 }
 `;
 
-const OBTENER_USUARIO = gql`
-    query obtenerUsuario{
-        obtenerUsuario {
-            id
-            nombre
-            apellido
-        }
-    }
-`;
+
 
 const Login = () => {
 
